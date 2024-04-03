@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  place-items: center;
+  font-family: sans-serif;
+}
+
+.parent {
+  height: 95vh;
+  width: 95vw;
+  border: 5px solid #111;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  place-items: center;
+}
+.parent__box {
+  height: 100%;
+  width: 100%;
+  border: 2rem solid green;
+  outline: none;
+}
+
+.button {
+  background: linear-gradient(90deg, rgb(27, 26, 42) 0%, rgb(59, 61, 98) 100%);
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  border-radius: 40px;
+  margin: 20px auto;
+  z-index: 900;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
