@@ -3,36 +3,38 @@ const button = document.querySelector('button');
 
 
 button.addEventListener('click', () => {
-    const randomRgb = Math.floor(Math.random() * 255);
+    const randomRgb1 = Math.floor(Math.random() * 255);
+    const randomRgb2 = Math.floor(Math.random() * 255);
+    const randomRgb3 = Math.floor(Math.random() * 255);
     const newBox = document.createElement('div');
     newBox.setAttribute('class', 'parent__box');
-    newBox.style.border = `2rem solid rgb(${randomRgb},${randomRgb},${randomRgb})`
+    newBox.style.border = `2rem solid rgb(${randomRgb1},${randomRgb2},${randomRgb3})`
     
-    if(!parent.lastElementChild) {
+    if(!parent.firstChild) {
         parent.appendChild(newBox)
     }
 
     else  {
-      let addBoxHere = checkForChildren(parent);
-      console.log(addBoxHere)
-      addBoxHere.appendChild(newBox)
+        
+        addBoxHere = checkForChildren(parent.firstChild);
+        if(addBoxHere.offsetWidth > 200 && addBoxHere.offsetWidth < 250 || addBoxHere.offsetHeight > 200 && addBoxHere.offsetHeight < 250) {
+        
+        }
+        else {
+            addBoxHere.appendChild(newBox)
+        }
      
     }
     
 })
 
 function checkForChildren (start) {
-    let adjustingChild = start;
-    let child = start.hasChildNodes();
-    let adult = adjustingChild.parentElement;
+    let childrenCheck = start;
+
+    if(!childrenCheck.firstChild) {
+        return childrenCheck;
+    }
     
-
-    if(child) {
-        adjustingChild = start.firstChild
-        checkForChildren(adjustingChild);
-    }
-
-    else {
-        return adult;
-    }
+    return checkForChildren(childrenCheck.firstChild);
+    
 }
