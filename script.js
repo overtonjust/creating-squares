@@ -9,7 +9,8 @@ button.addEventListener('click', () => {
     newBox.style.border = `2rem solid  ${randomRGB()}`;
          
         addBoxHere = checkForChildren(parent);
-        if(addBoxHere.offsetWidth < 250 || addBoxHere.offsetHeight < 250) {
+
+        if(addBoxHere.offsetWidth < 150 || addBoxHere.offsetHeight < 150) {
             return
         }
         else {
