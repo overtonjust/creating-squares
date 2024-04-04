@@ -7,22 +7,15 @@ button.addEventListener('click', () => {
     const newBox = document.createElement('div');
     newBox.setAttribute('class', 'parent__box');
     newBox.style.border = `2rem solid  ${randomRGB()}`;
-    
-    if(!parent.firstChild) {
-        parent.appendChild(newBox)
-    }
-
-    else  {
-        
-        addBoxHere = checkForChildren(parent.firstChild);
-        if(addBoxHere.offsetWidth > 200 && addBoxHere.offsetWidth < 250 || addBoxHere.offsetHeight > 200 && addBoxHere.offsetHeight < 250) {
-        
+         
+        addBoxHere = checkForChildren(parent);
+        if(addBoxHere.offsetWidth < 250 || addBoxHere.offsetHeight < 250) {
+            return
         }
         else {
             addBoxHere.appendChild(newBox)
         }
      
-    }
     
 })
 
