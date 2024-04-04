@@ -3,12 +3,10 @@ const button = document.querySelector('button');
 
 
 button.addEventListener('click', () => {
-    const randomRgb1 = Math.floor(Math.random() * 255);
-    const randomRgb2 = Math.floor(Math.random() * 255);
-    const randomRgb3 = Math.floor(Math.random() * 255);
+  
     const newBox = document.createElement('div');
     newBox.setAttribute('class', 'parent__box');
-    newBox.style.border = `2rem solid rgb(${randomRgb1},${randomRgb2},${randomRgb3})`
+    newBox.style.border = `2rem solid  ${randomRGB()}`;
     
     if(!parent.firstChild) {
         parent.appendChild(newBox)
@@ -28,13 +26,20 @@ button.addEventListener('click', () => {
     
 })
 
-function checkForChildren (start) {
-    let childrenCheck = start;
+function checkForChildren (parent) {
 
-    if(!childrenCheck.firstChild) {
-        return childrenCheck;
+    if(!parent.firstChild) {
+        return parent;
     }
     
-    return checkForChildren(childrenCheck.firstChild);
+    return checkForChildren(parent.firstChild);
     
+}
+
+function randomRGB() {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+
+    return `rgb(${red}, ${green}, ${blue})`
 }
